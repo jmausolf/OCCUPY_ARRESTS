@@ -45,31 +45,7 @@ def arrests_urls(sub_pages_url):
 
 
 
-#arrests_urls("http://stpeteforpeace.org/occupyarrests.sources.html")
-
-
-import urllib
-
-import urllib2
-
-attempts = 0
-
-url = "http://seattletimes.nwsource.com/html/localnews/2017613231_occupy28m.html"
-
-while attempts < 3:
-    try:
-        response = urllib2.urlopen(url, timeout = 5)
-        content = response.read()
-        f = open( "local/example.html", 'w' )
-        f.write( content )
-        f.close()
-        break
-    except urllib2.URLError as e:
-        attempts += 1
-        print type(e)
-
-
-
+arrests_urls("http://stpeteforpeace.org/occupyarrests.sources.html")
 
 
 

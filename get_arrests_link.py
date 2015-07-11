@@ -8,7 +8,6 @@
 
 
 
-
 def arrests_urls(sub_pages_url):
     """Returns all the arrest links URLs extentions for the 
     according website."""
@@ -20,13 +19,8 @@ def arrests_urls(sub_pages_url):
     #Base Page
     soup = BeautifulSoup(urllib2.urlopen(sub_pages_url).read())
 	
-    #Speech URLs
-    #content = soup.find("tr", {"td":"a"})
     content = soup.find("tr")
-    print content
     speeches = ["".join(x.findAll("a")) for x in content.findAll(href=True)]
-    
-    #base_url = "http://www.whitehouse.gov"
 
     try:
         f=open('arresturls.txt', 'w')
@@ -36,7 +30,6 @@ def arrests_urls(sub_pages_url):
             f.write(u'%s\n' % (arrest_url))
     finally:
         f.close()
-
 
 
 	#Write to CSV

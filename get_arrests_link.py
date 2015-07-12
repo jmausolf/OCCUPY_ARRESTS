@@ -8,7 +8,7 @@
 
 
 
-def arrests_urls(sub_pages_url):
+def arrests_urls(input_url):
     """Returns all the arrest links URLs extentions for the 
     according website."""
     
@@ -17,7 +17,7 @@ def arrests_urls(sub_pages_url):
     from bs4 import BeautifulSoup
 
     #Base Page
-    soup = BeautifulSoup(urllib2.urlopen(sub_pages_url).read())
+    soup = BeautifulSoup(urllib2.urlopen(input_url).read())
 	
     content = soup.find("tr")
     speeches = ["".join(x.findAll("a")) for x in content.findAll(href=True)]
